@@ -44,7 +44,6 @@ def make_chains(text_string):
         [None]
     """
     
-    # contents = open_and_read_file('green-eggs.txt')
 
     chains = {}
 
@@ -52,16 +51,11 @@ def make_chains(text_string):
 
     words.append(None)
 
-    # for i in range(len(words) - 1):
-    #     print(words[i], words[i + 1])
 
     for idx in range(len(words) - 2):
         
         key = (words[idx], words[idx + 1])
         value = words[idx + 2]
-
-    # for word in range(len(words) - 1):
-    #     chains[words[word], words[word + 1]] = chains[words[word], words[word + 2]]
 
         if key not in chains:
             chains[key] = []
@@ -69,13 +63,9 @@ def make_chains(text_string):
         chains[key].append(value)
 
 
-    # for item, value in chains:
-    #     print(f'{item}:{value}')
-
     return chains
 
-# print(make_chains('green-eggs.txt'))
-
+make_chains('green-eggs.txt')
 
 def make_text(chains):
     """Return text from chains."""
@@ -88,13 +78,11 @@ def make_text(chains):
         key = (key[1], word)
         words.append(word)
         word = choice(chains[key])
-
-        # your code goes here
     return " ".join(words)
 
 
 
-input_path = sys.argv[0]
+input_path = sys.argv[1]
 
 # Open the file and turn it into one long string
 input_text = open_and_read_file(input_path)
